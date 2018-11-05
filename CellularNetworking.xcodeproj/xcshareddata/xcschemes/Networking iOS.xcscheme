@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "283FE8C02190D0DB001CDC3E"
+               BuildableName = "Networking iOSTests.xctest"
+               BlueprintName = "Networking iOSTests"
+               ReferencedContainer = "container:CellularNetworking.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "283FE8B82190D0DB001CDC3E"
+            BuildableName = "Networking.framework"
+            BlueprintName = "Networking iOS"
+            ReferencedContainer = "container:CellularNetworking.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

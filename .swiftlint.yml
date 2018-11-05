@@ -4,4 +4,4 @@ included:
 excluded:
   - Pods
   - Example
-  - UnitTests
+  - Tests
