@@ -1,0 +1,41 @@
+language: swift
+osx_image: xcode9.3
+
+# Dependencies
+before_install: chmod +x ./.travis/deps.sh
+install: ./.travis/deps.sh
+
+# Build Script
+before_script: chmod +x ./.travis/build.sh
+script: ./.travis/build.sh
+
+# Update Code Coverage
+after_success: bash <(curl -s https://codecov.io/bash)
+
+# Notifications
+notifications:
+    email: false
+    slack:
+        on_success: change
+        rooms:
+          - cellular:SnbeoVtpHMYrmikTbYz6OGdb#ios-informiert
+
+# Build Matrix
+matrix:
+    include:
+        # macOS
+        - env: DESTINATION="arch=x86_64"  SCHEME="Networking macOS" RUN_TESTS="NO"  POD_LINT="YES"
+
+        # iOS
+        - env: DESTINATION="OS=11.3,name=iPhone X"        SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
+        - env: DESTINATION="OS=10.3.1,name=iPhone 7 Plus" SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
+        - env: DESTINATION="OS=9.3,name=iPhone 6"         SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
+        # watchOS
+        - env: DESTINATION="OS=4.3,name=Apple Watch - 42mm" SCHEME="Networking watchOS" RUN_TESTS="NO" POD_LINT="NO"
+        - env: DESTINATION="OS=3.2,name=Apple Watch - 42mm" SCHEME="Networking watchOS" RUN_TESTS="NO" POD_LINT="NO"
+        - env: DESTINATION="OS=2.2,name=Apple Watch - 42mm" SCHEME="Networking watchOS" RUN_TESTS="NO" POD_LINT="NO"
+        # tvOS
+        - env: DESTINATION="OS=11.3,name=Apple TV 4K"    SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
+        - env: DESTINATION="OS=10.2,name=Apple TV 1080p" SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
+        - env: DESTINATION="OS=9.2,name=Apple TV 1080p"  SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
+
