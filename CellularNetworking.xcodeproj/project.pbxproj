@@ -138,7 +138,6 @@
 		OBJ_116 /* BaseRemoteTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* BaseRemoteTestCase.swift */; };
 		OBJ_117 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* ResponseTests.swift */; };
 		OBJ_118 /* RetainedPromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* RetainedPromiseTests.swift */; };
-		OBJ_119 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* XCTestManifests.swift */; };
 		OBJ_121 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Networking::Networking::Product" /* Networking.framework */; };
 		OBJ_68 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Client.swift */; };
 		OBJ_69 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Authentication.swift */; };
@@ -211,8 +210,8 @@
 		2849E7762190D6B100BB558F /* BrokenLocalFileDefinition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BrokenLocalFileDefinition.json; sourceTree = "<group>"; };
 		2849E7772190D6B100BB558F /* LocalFileDefinition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocalFileDefinition.json; sourceTree = "<group>"; };
 		2849E7782190D6B100BB558F /* bar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bar.json; sourceTree = "<group>"; };
-		2849E77F2190D6E600BB558F /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a.png; path = ../../../../../../CELLULAR/tools/cellularnetworking/UnitTests/Remote/a.png; sourceTree = "<group>"; };
-		2849E7802190D6E600BB558F /* b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = b.png; path = ../../../../../../CELLULAR/tools/cellularnetworking/UnitTests/Remote/b.png; sourceTree = "<group>"; };
+		2849E77F2190D6E600BB558F /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
+		2849E7802190D6E600BB558F /* b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b.png; sourceTree = "<group>"; };
 		329B3C6B290BA846874A603C /* Pods-Networking iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking iOS/Pods-Networking iOS.release.xcconfig"; sourceTree = "<group>"; };
 		334F5E86907A1C37EDAE86A6 /* Pods-Networking tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking tvOSTests/Pods-Networking tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		413BD1A67567A9DDF518DC68 /* Pods-Networking iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking iOSTests/Pods-Networking iOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -262,7 +261,6 @@
 		OBJ_55 /* BaseRemoteTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRemoteTestCase.swift; sourceTree = "<group>"; };
 		OBJ_56 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		OBJ_57 /* RetainedPromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetainedPromiseTests.swift; sourceTree = "<group>"; };
-		OBJ_58 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -479,10 +477,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_50 /* HashablePromiseTests.swift */,
-				OBJ_51 /* Local */,
 				OBJ_53 /* OperationQueueTests.swift */,
+				OBJ_51 /* Local */,
 				OBJ_54 /* Remote */,
-				OBJ_58 /* XCTestManifests.swift */,
 			);
 			name = NetworkingTests;
 			path = Tests/NetworkingTests;
@@ -1136,7 +1133,6 @@
 				OBJ_116 /* BaseRemoteTestCase.swift in Sources */,
 				OBJ_117 /* ResponseTests.swift in Sources */,
 				OBJ_118 /* RetainedPromiseTests.swift in Sources */,
-				OBJ_119 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
