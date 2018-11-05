@@ -1,0 +1,6 @@
+{
+    "maps": [{
+             "url": "https://cellular.de/news/*",
+             "fileName": "bar.txt"
+             }]
+}

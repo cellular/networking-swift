@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.7.3)
+  - CELLULAR/Locking (4.1.0)
+  - CELLULAR/Result (4.1.0)
+  - SwiftLint (0.27.0)
+  - Unbox (3.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - CELLULAR/Locking (= 4.1.0)
+  - CELLULAR/Result (= 4.1.0)
+  - SwiftLint
+  - Unbox
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CELLULAR
+    - SwiftLint
+    - Unbox
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  CELLULAR: 6af608774a6d7fed3a77b998aac37e5c6750beec
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  Unbox: 9ed33b2a31f7a8a049f54b94d40c4a52a28c4d9d
+
+PODFILE CHECKSUM: 22cc2f708686ca2262a5fdc671a770ca8f34ada3
+
+COCOAPODS: 1.5.3
