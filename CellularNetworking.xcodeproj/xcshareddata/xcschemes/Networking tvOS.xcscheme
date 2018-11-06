@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "283FE8EE2190D1BE001CDC3E"
+               BlueprintIdentifier = "2804477D2191C99200AB1C3A"
                BuildableName = "Networking.framework"
                BlueprintName = "Networking tvOS"
                ReferencedContainer = "container:CellularNetworking.xcodeproj">
@@ -26,26 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "283FE8EE2190D1BE001CDC3E"
-            BuildableName = "Networking.framework"
-            BlueprintName = "Networking tvOS"
-            ReferencedContainer = "container:CellularNetworking.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "283FE8F62190D1BF001CDC3E"
+               BlueprintIdentifier = "280447852191C99200AB1C3A"
                BuildableName = "Networking tvOSTests.xctest"
                BlueprintName = "Networking tvOSTests"
                ReferencedContainer = "container:CellularNetworking.xcodeproj">
@@ -55,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "283FE8EE2190D1BE001CDC3E"
+            BlueprintIdentifier = "2804477D2191C99200AB1C3A"
             BuildableName = "Networking.framework"
             BlueprintName = "Networking tvOS"
             ReferencedContainer = "container:CellularNetworking.xcodeproj">
@@ -77,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "283FE8EE2190D1BE001CDC3E"
+            BlueprintIdentifier = "2804477D2191C99200AB1C3A"
             BuildableName = "Networking.framework"
             BlueprintName = "Networking tvOS"
             ReferencedContainer = "container:CellularNetworking.xcodeproj">
@@ -95,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "283FE8EE2190D1BE001CDC3E"
+            BlueprintIdentifier = "2804477D2191C99200AB1C3A"
             BuildableName = "Networking.framework"
             BlueprintName = "Networking tvOS"
             ReferencedContainer = "container:CellularNetworking.xcodeproj">

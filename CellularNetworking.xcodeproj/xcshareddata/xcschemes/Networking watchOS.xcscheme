@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "283FE8E12190D1AF001CDC3E"
+               BlueprintIdentifier = "280447992191C9A100AB1C3A"
                BuildableName = "Networking.framework"
                BlueprintName = "Networking watchOS"
                ReferencedContainer = "container:CellularNetworking.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "283FE8E12190D1AF001CDC3E"
+            BlueprintIdentifier = "280447992191C9A100AB1C3A"
             BuildableName = "Networking.framework"
             BlueprintName = "Networking watchOS"
             ReferencedContainer = "container:CellularNetworking.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "283FE8E12190D1AF001CDC3E"
+            BlueprintIdentifier = "280447992191C9A100AB1C3A"
             BuildableName = "Networking.framework"
             BlueprintName = "Networking watchOS"
             ReferencedContainer = "container:CellularNetworking.xcodeproj">

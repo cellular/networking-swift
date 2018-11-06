@@ -1,39 +1,37 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-# Project Settings & Options
 project 'CellularNetworking'
 use_frameworks!
 
-# Dependencies
-def shared_pods
+abstract_target 'Networking' do
+    
     # Development related pods
-    pod 'SwiftLint'
+    pod 'SwiftLint', :configuration => 'Debug'
     
     # Subspec related pods
-    pod 'Unbox'
-    pod 'Alamofire'
+    pod 'Unbox', '~> 3.0.0'
+    pod 'Alamofire', '~> 4.7.3'
+
+    # Dependencies
     pod 'CELLULAR/Locking', '4.1.0'
     pod 'CELLULAR/Result', '4.1.0'
-end
 
-# Targets & Tests
-target 'Networking iOS' do
-    platform :ios, '9.0'
-    shared_pods
-    target 'Networking iOSTests' do
-        inherit! :search_paths
+    # Targets & Tests
+    target 'Networking iOS' do
+        platform :ios, '9.0'
+        target 'Networking iOSTests' do
+            inherit! :search_paths
+        end
     end
-end
 
-target 'Networking tvOS' do
-    platform :tvos, '9.0'
-    shared_pods
-    target 'Networking tvOSTests' do
-        inherit! :search_paths
+    target 'Networking tvOS' do
+        platform :tvos, '9.0'
+        target 'Networking tvOSTests' do
+            inherit! :search_paths
+        end
     end
-end
 
-target 'Networking watchOS' do
-    platform :watchos, '2.0'
-    shared_pods
+    target 'Networking watchOS' do
+        platform :watchos, '2.0'
+    end
 end

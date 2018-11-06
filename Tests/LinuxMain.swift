@@ -1,7 +1,7 @@
 import XCTest
 
-import networking_swiftTests
+import NetworkingTests
 
 var tests = [XCTestCaseEntry]()
-tests += networking_swiftTests.allTests()
+tests += NetworkingTests.allTests()
 XCTMain(tests)
