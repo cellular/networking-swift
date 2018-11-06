@@ -24,7 +24,7 @@ notifications:
 matrix:
     include:
         # iOS
-        - env: DESTINATION="OS=12.0,name=iPhone XS Max"   SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
+        - env: DESTINATION="OS=12.1,name=iPhone XS Max"   SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
         - env: DESTINATION="OS=11.3,name=iPhone X"        SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
         - env: DESTINATION="OS=10.3.1,name=iPhone 7 Plus" SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
         - env: DESTINATION="OS=9.3,name=iPhone 6"         SCHEME="Networking iOS" RUN_TESTS="YES" POD_LINT="NO"
