@@ -16,7 +16,6 @@
 		280447552191C81400AB1C3A /* LocalFileResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2804471E2191C80B00AB1C3A /* LocalFileResponseTests.swift */; };
 		280447562191C81400AB1C3A /* BrokenLocalFileDefinition.json in Resources */ = {isa = PBXBuildFile; fileRef = 2804471F2191C80B00AB1C3A /* BrokenLocalFileDefinition.json */; };
 		280447572191C81400AB1C3A /* OperationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447202191C80B00AB1C3A /* OperationQueueTests.swift */; };
-		280447592191C81400AB1C3A /* RetainedPromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447232191C80B00AB1C3A /* RetainedPromiseTests.swift */; };
 		2804475A2191C81400AB1C3A /* BaseRemoteTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447242191C80B00AB1C3A /* BaseRemoteTestCase.swift */; };
 		2804475B2191C81400AB1C3A /* b.png in Resources */ = {isa = PBXBuildFile; fileRef = 280447252191C80B00AB1C3A /* b.png */; };
 		2804475C2191C81400AB1C3A /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 280447262191C80B00AB1C3A /* a.png */; };
@@ -114,7 +113,6 @@
 		2886A9E02191EAAB0019213F /* LocalFileResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2804471E2191C80B00AB1C3A /* LocalFileResponseTests.swift */; };
 		2886A9E12191EAAB0019213F /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 280447262191C80B00AB1C3A /* a.png */; };
 		2886A9E22191EAAB0019213F /* b.png in Resources */ = {isa = PBXBuildFile; fileRef = 280447252191C80B00AB1C3A /* b.png */; };
-		2886A9E32191EAAB0019213F /* RetainedPromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447232191C80B00AB1C3A /* RetainedPromiseTests.swift */; };
 		2886A9E42191EAAB0019213F /* BaseRemoteTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447242191C80B00AB1C3A /* BaseRemoteTestCase.swift */; };
 		2886A9E52191EAAB0019213F /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447272191C80B00AB1C3A /* ResponseTests.swift */; };
 		29A39D5E82B92480D1133AB2 /* Pods_Networking_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCF1AACA97E759E4307655D /* Pods_Networking_tvOSTests.framework */; };
@@ -899,7 +897,6 @@
 				280447552191C81400AB1C3A /* LocalFileResponseTests.swift in Sources */,
 				280447572191C81400AB1C3A /* OperationQueueTests.swift in Sources */,
 				2804475D2191C81400AB1C3A /* ResponseTests.swift in Sources */,
-				280447592191C81400AB1C3A /* RetainedPromiseTests.swift in Sources */,
 				280447522191C81400AB1C3A /* HashablePromiseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -947,7 +944,6 @@
 				2886A9E42191EAAB0019213F /* BaseRemoteTestCase.swift in Sources */,
 				2886A9DC2191EAAB0019213F /* OperationQueueTests.swift in Sources */,
 				2886A9E52191EAAB0019213F /* ResponseTests.swift in Sources */,
-				2886A9E32191EAAB0019213F /* RetainedPromiseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
