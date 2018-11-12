@@ -1,6 +1,6 @@
 line_length: 140
 included:
-  - Source
+  - Sources
 excluded:
   - Pods
   - Example
