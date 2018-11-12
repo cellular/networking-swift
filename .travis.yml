@@ -34,8 +34,8 @@ matrix:
         - env: DESTINATION="OS=3.2,name=Apple Watch Series 2 - 42mm" SCHEME="Networking watchOS" RUN_TESTS="NO" POD_LINT="NO"
         - env: DESTINATION="OS=2.2,name=Apple Watch - 42mm"          SCHEME="Networking watchOS" RUN_TESTS="NO" POD_LINT="NO"
         # tvOS
-        - env: DESTINATION="OS=12.1,name=Apple TV 4K"            SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
-        - env: DESTINATION="OS=11.4,name=Apple TV 4K (at 1080p)" SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
-        - env: DESTINATION="OS=10.2,name=Apple TV 1080p"         SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
-        - env: DESTINATION="OS=9.2,name=Apple TV 1080p"          SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
+        # - env: DESTINATION="OS=12.1,name=Apple TV 4K"    SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
+        # - env: DESTINATION="OS=11.3,name=Apple TV 4K"    SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
+        # - env: DESTINATION="OS=10.2,name=Apple TV 1080p" SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
+        # - env: DESTINATION="OS=9.2,name=Apple TV 1080p"  SCHEME="Networking tvOS" RUN_TESTS="YES" POD_LINT="NO"
 
