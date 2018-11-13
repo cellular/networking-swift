@@ -1,0 +1,14 @@
+{
+    "maps": [
+             {
+             "url": "https://foo.de/%@$1",
+             "fileName": "bar",
+             "statusCode": 200
+             },
+             {
+             "url": "https://cellular.de/news/*",
+             "fileName": "bar.json",
+             "statusCode": 200
+             }
+             ]
+}
