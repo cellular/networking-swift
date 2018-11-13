@@ -21,15 +21,15 @@ internal extension Networking.Method {
     }
 }
 
-/// <#Description#>
+/// Wrapper around Alamofire Encoding to be used by the Networking Encoding
 private struct CustomEncoding: Alamofire.ParameterEncoding {
 
-    /// <#Description#>
+    /// The handler to use for encoding
     private let handler: (URLRequest, [String: Any]?) -> (URLRequest, NSError?)
 
-    /// <#Description#>
+    /// Initializes a new instance of Self using provided handler.
     ///
-    /// - Parameter handler: <#handler description#>
+    /// - Parameter handler: The handler to use for encoding
     init(handler: @escaping (URLRequest, [String: Any]?) -> (URLRequest, NSError?)) {
         self.handler = handler
     }

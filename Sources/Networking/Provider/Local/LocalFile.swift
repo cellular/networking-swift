@@ -28,7 +28,7 @@ public struct LocalFileDefinition {
 
 internal struct LocalFileMapContainer: Decodable {
 
-    var maps: [LocalFileMap]
+    var fileMaps: [LocalFileMap]
 }
 
 public struct LocalFileMap: Decodable {
@@ -115,7 +115,7 @@ public class LocalFileProvider: Provider {
 
     public init(definition: LocalFileDefinition) throws {
         self.fileBundle = definition.bundle
-        self.mapping = (try LocalFileHelper.createMapping(with: definition)).maps
+        self.mapping = (try LocalFileHelper.createMapping(with: definition)).fileMaps
     }
 
     public init(mapping: [LocalFileMap], bundle: Bundle) {
@@ -137,8 +137,8 @@ public class LocalFileProvider: Provider {
         return LocalFileRequest(url: url, provider: self)
     }
 
-    public func upload(_ data: NetworkData, url: String, method: Method, header: [String: String]?, progressHandler: ((Progress) -> Void)?)
-        -> Request {
+    public func upload(_ data: NetworkData, url: String, method: Method,
+                       header: [String: String]?, progressHandler: ((Progress) -> Void)?) -> Request {
         return LocalFileRequest(url: url, provider: self)
     }
 
