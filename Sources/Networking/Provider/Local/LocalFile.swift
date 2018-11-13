@@ -29,6 +29,10 @@ public struct LocalFileDefinition {
 internal struct LocalFileMapContainer: Decodable {
 
     var fileMaps: [LocalFileMap]
+
+    public enum CodingKeys: String, CodingKey {
+        case fileMaps = "maps"
+    }
 }
 
 public struct LocalFileMap: Decodable {
