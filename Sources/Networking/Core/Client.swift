@@ -17,7 +17,7 @@ open class Client<T> where T: DependencyManager {
     fileprivate let dependencyManager: T
 
 #if !os(watchOS)
-    /// The reachability manager to listen for networking changes on 0.0.0.0
+    /// The manager to listen for reachability changes on 0.0.0.0
     fileprivate let reachabilityManager: ReachabilityManager?
 #endif
 

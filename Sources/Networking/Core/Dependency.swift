@@ -2,7 +2,7 @@ import Foundation
 import CELLULAR
 
 /// Protocol to be implemented by any class/struct that may act as a client's dependency within an application.
-public protocol Dependency: Hashable {
+public protocol Dependency {
 
     /// The base URL to resolve each outgoing request against (relative).
     var baseUrl: URL? { get }
