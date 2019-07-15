@@ -22,7 +22,7 @@ open class Client<T> where T: DependencyManager {
 #endif
 
     /// Queue to stack up requests until the dependencies of the client have been resolved.
-    fileprivate let queue = OperationQueue<Result<T.Value, String>>()
+    fileprivate let queue = OperationQueue<Result<T.Value, Swift.Error>>()
 
     /// The authentication to be sent with each request created by the client.
     fileprivate var authentications: [String: Authentication] = [:]
@@ -45,7 +45,7 @@ open class Client<T> where T: DependencyManager {
 
 // MARK: - Dependency Access
 
-public extension Client {
+extension Client {
 
     /// Allows asynchronous access to the last resolved dependency of the client.
     ///
@@ -54,11 +54,11 @@ public extension Client {
     ///   - failed: Called with the error that occured while resolving last dependency.
     /// - Returns: Returns the operation that is created to access the dependency (or the error).
     @discardableResult
-    public func dependency(success: @escaping (T.Value) -> Void, failure: ((Error) -> Void)? = nil) -> Operation {
+    public func dependency(success: @escaping (T.Value) -> Void, failure: ((Swift.Error) -> Void)? = nil) -> Operation {
         return queue.addOperation { result in
             switch result {
             case let .success(result): success(result)
-            case let .failure(message): failure?(.unsolvedDependency(message))
+            case let .failure(error): failure?(error)
             }
         }
     }
@@ -66,7 +66,7 @@ public extension Client {
 
 // MARK: - Routine
 
-public extension Client {
+extension Client {
 
     /// Performs any task necessary to resolve the clients internal dependency. Needs to be called whenever the dependency
     /// is invalid (or not yet existing). Calling this method will suspend (if not already suspended) any outgoing request
@@ -90,7 +90,7 @@ public extension Client {
 // MARK: - Reachability
 
 #if !os(watchOS)
-public extension Client {
+extension Client {
 
     /// Defines the generic (no specific host) reachability state of the client.
     public var reachabilityStatus: ReachabilityStatus {
@@ -109,7 +109,7 @@ public extension Client {
 
 // MARK: - Authentication
 
-public extension Client {
+extension Client {
 
     /// Authenticates each request created by the client with given credentials.
     ///
@@ -161,7 +161,7 @@ public extension Client {
 
 // MARK: - Request
 
-public extension Client {
+extension Client {
 
     /// Creates a request for the specified method, URL string, parameters, parameter encoding and headers.
     ///
@@ -183,8 +183,8 @@ public extension Client {
 
             // Resolve the promise against the new dependency or error
             switch result {
-            case let .failure(message):
-                promise.resolve(with: .failure(.unsolvedDependency(message)))
+            case let .failure(error):
+                promise.resolve(with: .failure(error))
 
             case let .success(dependency):
                 // If `self`, the client instance, no longer exists, outgoing requests must/can not be continued.
@@ -198,7 +198,7 @@ public extension Client {
                 let path = path(dependency).urlString
                 guard var url = URL(string: path, relativeTo: dependency.baseUrl) else {
                     let message = "Path \'\(path)\' relative to URL \'\(String(describing: dependency.baseUrl))\' could not be resolved."
-                    return promise.resolve(with: .failure(.malformedUrl(message)))
+                    return promise.resolve(with: .failure(Error.malformedUrl(message)))
                 }
 
                 // Resolve parameters and headers against the dependency
@@ -243,8 +243,8 @@ public extension Client {
         return Promise(in: queue, operation: { [weak self] (promise, result) in
             // Resolve the promise against the new dependency or error
             switch result {
-            case let .failure(message):
-                promise.resolve(with: .failure(.unsolvedDependency(message)))
+            case let .failure(error):
+                promise.resolve(with: .failure(error))
 
             case let .success(dependency):
                 // If `self`, the client instance, no longer exists, outgoing requests must/can not be continued.
@@ -258,7 +258,7 @@ public extension Client {
                 let path = path(dependency).urlString
                 guard var url = URL(string: path, relativeTo: dependency.baseUrl) else {
                     let message = "Path \'\(path)\' relative to URL \'\(String(describing: dependency.baseUrl))\' could not be resolved."
-                    return promise.resolve(with: .failure(.malformedUrl(message)))
+                    return promise.resolve(with: .failure(Error.malformedUrl(message)))
                 }
 
                 // Resolve parameters and headers against the dependency
@@ -299,8 +299,8 @@ public extension Client {
         return Promise(in: queue, operation: { [weak self] (promise, result) in
             // Resolve the promise against the new dependency or error
             switch result {
-            case let .failure(message):
-                promise.resolve(with: .failure(.unsolvedDependency(message)))
+            case let .failure(error):
+                promise.resolve(with: .failure(error))
 
             case let .success(dependency):
                 // If `self`, the client instance, no longer exists, outgoing requests must/can not be continued.
@@ -314,7 +314,7 @@ public extension Client {
                 let path = path(dependency).urlString
                 guard var url = URL(string: path, relativeTo: dependency.baseUrl) else {
                     let message = "Path \'\(path)\' relative to URL \'\(String(describing: dependency.baseUrl))\' could not be resolved."
-                    return promise.resolve(with: .failure(.malformedUrl(message)))
+                    return promise.resolve(with: .failure(Error.malformedUrl(message)))
                 }
 
                 // Resolve parameters and headers against the dependency
@@ -334,7 +334,7 @@ public extension Client {
                     case .success(let result):
                         promise.resolve(with: result.request, using: dependency)
                     case .failure(let error):
-                        promise.resolve(with: .failure(.serializationFailed(error)))
+                        promise.resolve(with: .failure(error))
                     }
                 }, progressHandler: progressHandler)
             }

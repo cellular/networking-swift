@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Promise {
+extension Promise {
 
     /// Possible states of the promise and its request within an entire lifecycle.
     ///
@@ -13,8 +13,8 @@ public extension Promise {
     public enum State {
         case idle
         case pending
-        case started(T, Request)    // The dependency (used to resolve the request) and the request sent by the provider.
-        case failed(Error)          // The error object to describe the reason for the promise to fail requesting.
+        case started(T, Request) // The dependency (used to resolve the request) and the request sent by the provider.
+        case failed(Swift.Error) // The error object to describe the reason for the promise to fail requesting.
         case canceled
         case finished(Value) // The dependency (used to resolve the request), the request and the received response.
     }

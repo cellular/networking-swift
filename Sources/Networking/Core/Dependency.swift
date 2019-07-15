@@ -27,5 +27,5 @@ public protocol DependencyManager {
     ///   - handler: The handler that has been passed from the application to the client within its
     ///              `-performDependencyUpdateRoutine:` to receive updates on dependency changes.
     ///   - completion: The completion closure that must be called to inform the client once the dependency has been resolved.
-    func requiresDependencyUpdate(manager: Provider, handler: Handler, completion: @escaping (Result<Value, String>) -> Void)
+    func requiresDependencyUpdate(manager: Provider, handler: Handler, completion: @escaping (Swift.Result<Value, Swift.Error>) -> Void)
 }

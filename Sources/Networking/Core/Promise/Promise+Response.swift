@@ -1,7 +1,7 @@
 import Foundation
 import CELLULAR
 
-public extension Promise {
+extension Promise {
 
     // MARK: Plain response
 
@@ -163,7 +163,7 @@ public extension Promise {
     ///   - handler: The handler to be triggered if an error occured or the response code is within error range.
     /// - Returns: The promise to which the failure handler has been subscribed.
     @discardableResult
-    public func failure(in queue: DispatchQueue? = .main, handler: @escaping (Error) -> Void) -> Promise {
+    public func failure(in queue: DispatchQueue? = .main, handler: @escaping (Swift.Error) -> Void) -> Promise {
         return failure(in: queue, exclude: [], handler: handler)
     }
 
@@ -178,12 +178,12 @@ public extension Promise {
     @discardableResult
     public func failure<S: Sequence>(
         in queue: DispatchQueue? = .main, exclude: S,
-        handler: @escaping (Error) -> Void) -> Promise where S.Iterator.Element == Int {
-
+        handler: @escaping (Swift.Error) -> Void
+    ) -> Promise where S.Iterator.Element == Int {
         addResponseOperation { result in
 
             // Wrapping closure to execute the completion block on desired queue
-            let resolve: (Error) -> Void = { error in
+            let resolve: (Swift.Error) -> Void = { error in
                 guard let queue = queue else { return handler(error) }
                 queue.async { handler(error) }
             }
@@ -197,10 +197,10 @@ public extension Promise {
                 let response = values.response
                 if Set(400..<500).subtracting(exclude).contains(response.statusCode) {
                     // Response returned with a status code between 400 and 500, and is not excluded. Client Error.
-                    resolve(.clientError(request, response))
+                    resolve(Error.clientError(request, response))
                 } else if Set(500..<600).subtracting(exclude).contains(response.statusCode) {
                     // Response returned with a status code between 500 and 600, and is not excluded. Server Error.
-                    resolve(.serverError(request, response))
+                    resolve(Error.serverError(request, response))
                 }
             }
         }

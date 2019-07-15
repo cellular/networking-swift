@@ -15,6 +15,8 @@ HTTPBin is not a showcase for how it should be done, but it is easier for testin
 
 struct HTTPBin: Dependency, DependencyManager {
 
+    typealias Value = HTTPBin
+
     /// The HTTPBin dependency is its own resolve manager
     typealias Dependency = HTTPBin
 
@@ -46,7 +48,7 @@ struct HTTPBin: Dependency, DependencyManager {
     let invalidServer = "https://invalid-url-here.omg/this/server/does/not/exist"
 
     /// The dependency succeeds with the above defined HTTPBin at any time. This must NOT be used for dependency tests.
-    func requiresDependencyUpdate(manager: Provider, handler: Void, completion: @escaping (CELLULAR.Result<HTTPBin, String>) -> Void) {
+    func requiresDependencyUpdate(manager: Provider, handler: Void, completion: @escaping (Swift.Result<HTTPBin, Swift.Error>) -> Void) {
         return completion(.success(self))
     }
 }

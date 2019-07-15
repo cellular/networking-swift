@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Promise {
+extension Promise {
 
     /// Describes the values necessary for a promise to be resolved successfully.
     public struct Value {

@@ -34,8 +34,8 @@ public protocol Provider {
     ///   - header: Optional HTTP header fields
     ///   - progressHandler: Closure to receive upload progress updates
     /// - Returns: A newly constructed request with the given parameters
-    func upload(_ data: NetworkData, url: String, method: Method, header: [String: String]?, progressHandler: ((Progress) -> Void)?)
-        -> Request
+    func upload(_ data: NetworkData, url: String, method: Method, header: [String: String]?,
+                progressHandler: ((Progress) -> Void)?) -> Request
 
     /// Creates a request to upload multipart form data according to RFC 2388 with the given data and parameters
     ///
@@ -47,7 +47,8 @@ public protocol Provider {
     ///   - encodingCompletion: Completion closure of the form encoding. If successful, the result contains the constructed Request object
     ///   - progressHandler: Closure to receive upload progress updates
     func upload(multipartFormData: [FormDataPart], url: String, method: Method, header: [String: String]?,
-                encodingCompletion: ((Result<FormDataEncodingResult, String>) -> Void)?, progressHandler: ((Progress) -> Void)?)
+                encodingCompletion: ((Result<FormDataEncodingResult, Swift.Error>) -> Void)?,
+                progressHandler: ((Progress) -> Void)?)
 
 //    func download(_ url: URLConvertible,method: HTTPMethod = .get, parameters: Parameters? = nil,
 //        encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil,
