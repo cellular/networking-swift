@@ -7,7 +7,7 @@ import CELLULAR
 /// directly be assigned to the managing promise on creation and is available in either completion closure.
 /// Furthermore, the promise allows access and serialization to the request at any time and queue the
 /// access/serialization if necessary (e.g. while the actual request is still waiting for it being created).
-public final class Promise<T>: Hashable where T: Dependency {
+public final class Promise<T> where T: Dependency {
 
     /// The underlying closure to be queued within the client's dependency queue to send the request.
     private var dependencyClosure: ((Promise, Result<T, Swift.Error>) -> Void)
@@ -134,11 +134,13 @@ public final class Promise<T>: Hashable where T: Dependency {
             requestOperation?.cancel()
         }
     }
+}
 
+// MARK: - Hashable
+extension Promise: Hashable {
     public static func == (lhs: Promise<T>, rhs: Promise<T>) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
-
     public func hash(into hasher: inout Hasher) {
         hasher.combine(ObjectIdentifier(self))
     }

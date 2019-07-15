@@ -1,6 +1,6 @@
 import Foundation
 
-/// Defines a serial operation queue that operates (only) once its depending value is resolved.
+/// Defines a serial operation queue that operates (exclusivly) once its depending value is resolved.
 public final class OperationQueue<Value> {
 
     /// The value to resolve the operation queue against

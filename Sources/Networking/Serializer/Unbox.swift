@@ -2,20 +2,22 @@ import Unbox
 
 // MARK: - Convenience Unboxing
 
-/// Creates and returns a deserializer for a single `Model` instance of given type `model`. `Model` must conform to `Unboxable`.
+/// Creates and returns a deserializer for a single `Model` instance of given type `model`.
+/// `Model` must conform to `Unboxable`.
 ///
 /// - Parameter model: The `Model.Type` to unbox within the response serialization process.
-/// - Returns: A new deserializer that will unbox an instance of given `Model.Type` within a networking response deserialization.
+/// - Returns: A new deserializer that will unbox an instance of given `Model.Type` within a response deserialization.
 public func unbox<Model>(model: Model.Type) -> UnboxedSingle<Model> {
     return UnboxedSingle<Model>()
 }
 
-/// Creates and returns a deserializer for an array of `Model` instance of given type `model`. `Model` must conform to `Unboxable`.
+/// Creates and returns a deserializer for an array of `Model` instance of given type `model`.
+/// `Model` must conform to `Unboxable`.
 ///
 /// - Parameters:
 ///   - model: The `Model.Type` to unbox within the response serialization process.
 ///   - allowInvalidElements: Allowing invalid elements withtin the array to deserialize.
-/// - Returns: A new deserializer that will unbox an array of given `Model.Type` within a networking response deserialization.
+/// - Returns: A new deserializer that will unbox an array of given `Model.Type` within a response deserialization.
 public func unbox<Model>(model: Model.Type, allowInvalidElements: Bool) -> UnboxedArray<[Model]> {
     return UnboxedArray<[Model]>(allowInvalidElements: allowInvalidElements)
 }

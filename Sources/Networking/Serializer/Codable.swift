@@ -1,11 +1,12 @@
 import Foundation
 
-/// Creates and returns a deserializer for an array of `Model` instance of given type `model`. `Model` must conform to `Decodable`.
+/// Creates and returns a deserializer for an array of `Model` instance of given type `model`.
+/// `Model` must conform to `Decodable`.
 ///
 /// - Parameters:
 ///   - model: The `Model.Type` to decode within the response serialization process.
 ///   - decoder: An optional custom encoder to be used for serialization
-/// - Returns: A new deserializer that will unbox an array of given `Model.Type` within a networking response deserialization.
+/// - Returns: A new deserializer that will unbox an array of given `Model.Type` within a response deserialization.
 public func decode<Model>(model: Model.Type, decoder: JSONDecoder = JSONDecoder()) -> JSONNetworkingDecoder<Model> {
     return JSONNetworkingDecoder<Model>(decoder: decoder)
 }
