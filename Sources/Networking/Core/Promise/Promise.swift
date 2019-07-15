@@ -118,7 +118,6 @@ public final class Promise<T>: Hashable where T: Dependency {
 
     /// Cancels the request promise and any response serialization within `self`.
     public func cancel() {
-
         protectedState.write { state in
             // Switch current state to cancel (if still cancelable)
             switch state {

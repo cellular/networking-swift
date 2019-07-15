@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06C33C7A389C1D218C9D34DC /* Pods_Networking_Networking_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35AD17054AAE2A6EA5D166F /* Pods_Networking_Networking_watchOS.framework */; };
-		0AC9851DFDC0A40ECB1DE2D1 /* Pods_Networking_Networking_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0967147D20A5540080082C59 /* Pods_Networking_Networking_iOS.framework */; };
 		280447072191C77F00AB1C3A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280446FD2191C77F00AB1C3A /* Networking.framework */; };
 		280447522191C81400AB1C3A /* HashablePromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2804471A2191C80B00AB1C3A /* HashablePromiseTests.swift */; };
 		280447532191C81400AB1C3A /* bar.json in Resources */ = {isa = PBXBuildFile; fileRef = 2804471C2191C80B00AB1C3A /* bar.json */; };
@@ -116,8 +114,10 @@
 		2886A9E42191EAAB0019213F /* BaseRemoteTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447242191C80B00AB1C3A /* BaseRemoteTestCase.swift */; };
 		2886A9E52191EAAB0019213F /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447272191C80B00AB1C3A /* ResponseTests.swift */; };
 		29A39D5E82B92480D1133AB2 /* Pods_Networking_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCF1AACA97E759E4307655D /* Pods_Networking_tvOSTests.framework */; };
+		5AB6BFB77E0F65602D7E7487 /* Pods_Networking_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5708B7EE0F7D1290B7639548 /* Pods_Networking_watchOS.framework */; };
 		6C1B0AC9E1F692879FCE7A9C /* Pods_Networking_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420EF53AC063EBD90A1C1EBB /* Pods_Networking_iOSTests.framework */; };
-		8B716498958849B57E575BDC /* Pods_Networking_Networking_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CED5B75494EF7FA0CAF7E78 /* Pods_Networking_Networking_tvOS.framework */; };
+		91EA8CD2FECACD82283836C6 /* Pods_Networking_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4FA2EFF1FA9CA9D7010D2E /* Pods_Networking_tvOS.framework */; };
+		9B16B42EA70282506C2C4E4F /* Pods_Networking_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702D9F32B52D29546EE68393 /* Pods_Networking_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,11 +138,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0967147D20A5540080082C59 /* Pods_Networking_Networking_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_Networking_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08B528C4BEBADBA180617B1F /* Pods-Networking tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking tvOS/Pods-Networking tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		0BCF1AACA97E759E4307655D /* Pods_Networking_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_tvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC2BFDF5A3FEF887719D1CD /* Pods-Networking-Networking watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking-Networking watchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking-Networking watchOS/Pods-Networking-Networking watchOS.release.xcconfig"; sourceTree = "<group>"; };
+		15DE877D499D04CB52520129 /* Pods-Networking iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking iOS/Pods-Networking iOS.release.xcconfig"; sourceTree = "<group>"; };
 		1AEC204D3AE44BE73BDCF046 /* Pods-Networking tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking tvOSTests/Pods-Networking tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		2543509F9C3CFED849260AF7 /* Pods-Networking-Networking tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking-Networking tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking-Networking tvOS/Pods-Networking-Networking tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		278CDE53FCDD0CBA021F7356 /* Pods-Networking watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking watchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking watchOS/Pods-Networking watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		280446FD2191C77F00AB1C3A /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		280447062191C77F00AB1C3A /* Networking iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Networking iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2804471A2191C80B00AB1C3A /* HashablePromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashablePromiseTests.swift; sourceTree = "<group>"; };
@@ -191,14 +193,18 @@
 		2804479A2191C9A100AB1C3A /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		420EF53AC063EBD90A1C1EBB /* Pods_Networking_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5082CBFFE8F076CB06F27157 /* Pods-Networking iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking iOSTests/Pods-Networking iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		5708B7EE0F7D1290B7639548 /* Pods_Networking_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EC2B8F83485C8F2997915D /* Pods-Networking iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking iOSTests/Pods-Networking iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		702D9F32B52D29546EE68393 /* Pods_Networking_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76CE14248AA4A3FFCD376848 /* Pods-Networking tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking tvOSTests/Pods-Networking tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7CED5B75494EF7FA0CAF7E78 /* Pods_Networking_Networking_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_Networking_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D4FA2EFF1FA9CA9D7010D2E /* Pods_Networking_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D4D51DD138D096E2F450773 /* Pods-Networking iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking iOS/Pods-Networking iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		99A20322C4F7A3C6C7D40224 /* Pods-Networking tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking tvOS/Pods-Networking tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9DDA5608A4C2139EE443A129 /* Pods-Networking-Networking watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking-Networking watchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking-Networking watchOS/Pods-Networking-Networking watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B5D3F8B0574B48EC7B83E7B1 /* Pods-Networking-Networking iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking-Networking iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking-Networking iOS/Pods-Networking-Networking iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BA7A38CD85C42DFC743BA4C0 /* Pods-Networking-Networking iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking-Networking iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking-Networking iOS/Pods-Networking-Networking iOS.release.xcconfig"; sourceTree = "<group>"; };
-		D35AD17054AAE2A6EA5D166F /* Pods_Networking_Networking_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_Networking_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E267F2E1267E0AA62B8347CB /* Pods-Networking-Networking tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking-Networking tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Networking-Networking tvOS/Pods-Networking-Networking tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F48979EBFAFE85E802871ADC /* Pods-Networking watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking watchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking watchOS/Pods-Networking watchOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AC9851DFDC0A40ECB1DE2D1 /* Pods_Networking_Networking_iOS.framework in Frameworks */,
+				9B16B42EA70282506C2C4E4F /* Pods_Networking_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B716498958849B57E575BDC /* Pods_Networking_Networking_tvOS.framework in Frameworks */,
+				91EA8CD2FECACD82283836C6 /* Pods_Networking_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06C33C7A389C1D218C9D34DC /* Pods_Networking_Networking_watchOS.framework in Frameworks */,
+				5AB6BFB77E0F65602D7E7487 /* Pods_Networking_watchOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,9 +258,9 @@
 			children = (
 				420EF53AC063EBD90A1C1EBB /* Pods_Networking_iOSTests.framework */,
 				0BCF1AACA97E759E4307655D /* Pods_Networking_tvOSTests.framework */,
-				0967147D20A5540080082C59 /* Pods_Networking_Networking_iOS.framework */,
-				7CED5B75494EF7FA0CAF7E78 /* Pods_Networking_Networking_tvOS.framework */,
-				D35AD17054AAE2A6EA5D166F /* Pods_Networking_Networking_watchOS.framework */,
+				702D9F32B52D29546EE68393 /* Pods_Networking_iOS.framework */,
+				7D4FA2EFF1FA9CA9D7010D2E /* Pods_Networking_tvOS.framework */,
+				5708B7EE0F7D1290B7639548 /* Pods_Networking_watchOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -462,6 +468,12 @@
 				2543509F9C3CFED849260AF7 /* Pods-Networking-Networking tvOS.release.xcconfig */,
 				9DDA5608A4C2139EE443A129 /* Pods-Networking-Networking watchOS.debug.xcconfig */,
 				0DC2BFDF5A3FEF887719D1CD /* Pods-Networking-Networking watchOS.release.xcconfig */,
+				8D4D51DD138D096E2F450773 /* Pods-Networking iOS.debug.xcconfig */,
+				15DE877D499D04CB52520129 /* Pods-Networking iOS.release.xcconfig */,
+				99A20322C4F7A3C6C7D40224 /* Pods-Networking tvOS.debug.xcconfig */,
+				08B528C4BEBADBA180617B1F /* Pods-Networking tvOS.release.xcconfig */,
+				278CDE53FCDD0CBA021F7356 /* Pods-Networking watchOS.debug.xcconfig */,
+				F48979EBFAFE85E802871ADC /* Pods-Networking watchOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -523,6 +535,7 @@
 				280447022191C77F00AB1C3A /* Sources */,
 				280447032191C77F00AB1C3A /* Frameworks */,
 				280447042191C77F00AB1C3A /* Resources */,
+				90B8381F605198BBDF7B53E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -561,6 +574,7 @@
 				280447822191C99200AB1C3A /* Sources */,
 				280447832191C99200AB1C3A /* Frameworks */,
 				280447842191C99200AB1C3A /* Resources */,
+				87E4D2389EB6B4AAAB70CF80 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -716,6 +730,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		87E4D2389EB6B4AAAB70CF80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Networking tvOSTests/Pods-Networking tvOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Networking tvOSTests/Pods-Networking tvOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Networking tvOSTests/Pods-Networking tvOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90B8381F605198BBDF7B53E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Networking iOSTests/Pods-Networking iOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Networking iOSTests/Pods-Networking iOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Networking iOSTests/Pods-Networking iOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		97FDA07F9BD22EF9B1386F5A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -731,7 +779,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Networking-Networking iOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Networking iOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -753,7 +801,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Networking-Networking tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Networking tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -775,7 +823,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Networking-Networking watchOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Networking watchOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1077,7 +1125,7 @@
 		};
 		280447122191C77F00AB1C3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5D3F8B0574B48EC7B83E7B1 /* Pods-Networking-Networking iOS.debug.xcconfig */;
+			baseConfigurationReference = 8D4D51DD138D096E2F450773 /* Pods-Networking iOS.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1103,7 +1151,7 @@
 		};
 		280447132191C77F00AB1C3A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA7A38CD85C42DFC743BA4C0 /* Pods-Networking-Networking iOS.release.xcconfig */;
+			baseConfigurationReference = 15DE877D499D04CB52520129 /* Pods-Networking iOS.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1167,7 +1215,7 @@
 		};
 		280447902191C99200AB1C3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E267F2E1267E0AA62B8347CB /* Pods-Networking-Networking tvOS.debug.xcconfig */;
+			baseConfigurationReference = 99A20322C4F7A3C6C7D40224 /* Pods-Networking tvOS.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1194,7 +1242,7 @@
 		};
 		280447912191C99200AB1C3A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2543509F9C3CFED849260AF7 /* Pods-Networking-Networking tvOS.release.xcconfig */;
+			baseConfigurationReference = 08B528C4BEBADBA180617B1F /* Pods-Networking tvOS.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1223,7 +1271,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76CE14248AA4A3FFCD376848 /* Pods-Networking tvOSTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/NetworkingTests/Info.plist";
@@ -1245,7 +1292,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1AEC204D3AE44BE73BDCF046 /* Pods-Networking tvOSTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/NetworkingTests/Info.plist";
@@ -1265,7 +1311,7 @@
 		};
 		280447A02191C9A100AB1C3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DDA5608A4C2139EE443A129 /* Pods-Networking-Networking watchOS.debug.xcconfig */;
+			baseConfigurationReference = 278CDE53FCDD0CBA021F7356 /* Pods-Networking watchOS.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1292,7 +1338,7 @@
 		};
 		280447A12191C9A100AB1C3A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DC2BFDF5A3FEF887719D1CD /* Pods-Networking-Networking watchOS.release.xcconfig */;
+			baseConfigurationReference = F48979EBFAFE85E802871ADC /* Pods-Networking watchOS.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
