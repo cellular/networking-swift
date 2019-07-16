@@ -13,13 +13,13 @@ public final class Promise<T> where T: Dependency {
     private var dependencyClosure: ((Promise, Result<T, Swift.Error>) -> Void)
 
     /// The queue to add the dependency operation once the request should be executed.
-    private var dependencyQueue: OperationQueue<Result<T, Swift.Error>>
+    internal private(set) var dependencyQueue: OperationQueue<Result<T, Swift.Error>>
 
     /// The passed in operation to be executed to resolve the promise once the dependency is resolved.
     private var requestOperation: Operation?
 
     /// The queue to add any serialization related tasks (response serialization or failure listener).
-    private let responseQueue: OperationQueue<Result<Value, Swift.Error>>
+    private lazy var responseQueue: OperationQueue<Result<Value, Swift.Error>> = .init()
 
     /// The current state of the promise within the request queue wrapped as protected/atomic values.
     private lazy var protectedState = Protected<State>(initialValue: .idle, lock: DispatchLock(
@@ -40,10 +40,11 @@ public final class Promise<T> where T: Dependency {
     /// - Parameters:
     ///   - queue: The `OperationQueue` within which the promise should be "queued" once its ready.
     ///   - operation: The operation to execute once given `OperationQueue` is no longer suspended.
-    internal init(in queue: OperationQueue<Result<T, Swift.Error>>, operation: @escaping (Promise, Result<T, Swift.Error>) -> Void) {
-        responseQueue = OperationQueue()
-        dependencyClosure = operation
-        dependencyQueue = queue
+    internal init(
+        in queue: OperationQueue<Result<T, Swift.Error>>,
+        operation: @escaping (Promise, Result<T, Swift.Error>) -> Void) {
+            dependencyClosure = operation
+            dependencyQueue = queue
     }
 
     // MARK: Operational
@@ -94,26 +95,50 @@ public final class Promise<T> where T: Dependency {
     /// - Parameter result: The request response result (either the proper response or an error, e.g. due to a timeout).
     internal func resolve(with result: Result<Response, Swift.Error>) {
 
+        // Validate the result returned successfully as well as the internal state is of proper value.
+        guard case let .started(dependency, request) = state, case let .success(response) = result else {
+            // Error while requesting data. Examine the reason and resolve the promise as failed.
+            let error: Swift.Error
+            if case let .failure(networkingError) = result {
+                error = networkingError
+            } else { // Dependency error
+                error = Error.unsolvedDependency("Dependency missing on success return.")
+            }
+            // Fail the promise and update the response/failure closures
+            return resolve(with: error)
+        }
+
+        // Finish the promise as dependency, request and response has been received.
+        resolve(with: Value(dependency: dependency, request: request, response: response))
+    }
+
+    internal func resolve(with error: Swift.Error) {
         // Resolve response queue with the result returned by write task
         responseQueue.resolve(with: protectedState.write { state in
-            // Validate the result returned successfully as well as the internal state is of proper value.
-            guard case let .started(dependency, request) = state, case let .success(response) = result else {
-                // Error while requesting data. Examine the reason and resolve the promise as failed.
-                let error: Swift.Error
-                if case let .failure(networkingError) = result {
-                    error = networkingError
-                } else { // Dependency error
-                    error = Error.unsolvedDependency("Dependency missing on success return.")
-                }
-                // Fail the promise and update the response/failure closures
-                state = .failed(error)
-                return .failure(error)
-            }
-            // Finish the promise as dependency, request and response has been received.
-            let values = Value(dependency: dependency, request: request, response: response)
-            state = .finished(values)
-            return .success(values)
+            state = .failed(error)
+            return .failure(error)
         })
+    }
+
+    internal func resolve(with value: Value) {
+        // Resolve response queue with the result returned by write task
+        responseQueue.resolve(with: protectedState.write { state in
+            state = .finished(value)
+            return .success(value)
+        })
+    }
+
+    internal func resolve(with other: Promise) {
+        let retain = other
+        other.addResponseOperation { result in
+            switch result {
+            case let .failure(error):
+                self.resolve(with: error)
+            case let .success(values):
+                self.resolve(with: values)
+            }
+            let _ = retain
+        }
     }
 
     /// Cancels the request promise and any response serialization within `self`.

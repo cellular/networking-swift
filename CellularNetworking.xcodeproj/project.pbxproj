@@ -113,6 +113,11 @@
 		2886A9E22191EAAB0019213F /* b.png in Resources */ = {isa = PBXBuildFile; fileRef = 280447252191C80B00AB1C3A /* b.png */; };
 		2886A9E42191EAAB0019213F /* BaseRemoteTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447242191C80B00AB1C3A /* BaseRemoteTestCase.swift */; };
 		2886A9E52191EAAB0019213F /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280447272191C80B00AB1C3A /* ResponseTests.swift */; };
+		28E9EE4822DCCE1500EAAA98 /* Promise+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E9EE4722DCCE1500EAAA98 /* Promise+Chaining.swift */; };
+		28E9EE4922DCCE1500EAAA98 /* Promise+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E9EE4722DCCE1500EAAA98 /* Promise+Chaining.swift */; };
+		28E9EE4A22DCCE1500EAAA98 /* Promise+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E9EE4722DCCE1500EAAA98 /* Promise+Chaining.swift */; };
+		28E9EE5022DDC35E00EAAA98 /* ChainedPromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E9EE4F22DDC35E00EAAA98 /* ChainedPromiseTests.swift */; };
+		28E9EE5122DDC35E00EAAA98 /* ChainedPromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E9EE4F22DDC35E00EAAA98 /* ChainedPromiseTests.swift */; };
 		29A39D5E82B92480D1133AB2 /* Pods_Networking_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCF1AACA97E759E4307655D /* Pods_Networking_tvOSTests.framework */; };
 		5AB6BFB77E0F65602D7E7487 /* Pods_Networking_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5708B7EE0F7D1290B7639548 /* Pods_Networking_watchOS.framework */; };
 		6C1B0AC9E1F692879FCE7A9C /* Pods_Networking_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420EF53AC063EBD90A1C1EBB /* Pods_Networking_iOSTests.framework */; };
@@ -191,6 +196,8 @@
 		2804477E2191C99200AB1C3A /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		280447862191C99200AB1C3A /* Networking tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Networking tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2804479A2191C9A100AB1C3A /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E9EE4722DCCE1500EAAA98 /* Promise+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+Chaining.swift"; sourceTree = "<group>"; };
+		28E9EE4F22DDC35E00EAAA98 /* ChainedPromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedPromiseTests.swift; sourceTree = "<group>"; };
 		420EF53AC063EBD90A1C1EBB /* Pods_Networking_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5082CBFFE8F076CB06F27157 /* Pods-Networking iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Networking iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Networking iOSTests/Pods-Networking iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		5708B7EE0F7D1290B7639548 /* Pods_Networking_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Networking_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,6 +334,7 @@
 				280447232191C80B00AB1C3A /* RetainedPromiseTests.swift */,
 				280447242191C80B00AB1C3A /* BaseRemoteTestCase.swift */,
 				280447272191C80B00AB1C3A /* ResponseTests.swift */,
+				28E9EE4F22DDC35E00EAAA98 /* ChainedPromiseTests.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -412,12 +420,13 @@
 		2804473A2191C80B00AB1C3A /* Promise */ = {
 			isa = PBXGroup;
 			children = (
-				2804473B2191C80B00AB1C3A /* Promise+Response.swift */,
-				2804473C2191C80B00AB1C3A /* Promise+Value.swift */,
-				2804473D2191C80B00AB1C3A /* Promise+Retain.swift */,
-				2804473E2191C80B00AB1C3A /* Promise+Authentication.swift */,
-				2804473F2191C80B00AB1C3A /* Promise+State.swift */,
 				280447402191C80B00AB1C3A /* Promise.swift */,
+				2804473E2191C80B00AB1C3A /* Promise+Authentication.swift */,
+				28E9EE4722DCCE1500EAAA98 /* Promise+Chaining.swift */,
+				2804473B2191C80B00AB1C3A /* Promise+Response.swift */,
+				2804473D2191C80B00AB1C3A /* Promise+Retain.swift */,
+				2804473F2191C80B00AB1C3A /* Promise+State.swift */,
+				2804473C2191C80B00AB1C3A /* Promise+Value.swift */,
 			);
 			path = Promise;
 			sourceTree = "<group>";
@@ -867,6 +876,7 @@
 				280447692191C8C500AB1C3A /* Reachability.swift in Sources */,
 				280447612191C8B800AB1C3A /* Unbox.swift in Sources */,
 				280447622191C8B800AB1C3A /* Codable.swift in Sources */,
+				28E9EE4822DCCE1500EAAA98 /* Promise+Chaining.swift in Sources */,
 				2804476E2191C8C500AB1C3A /* Promise+Authentication.swift in Sources */,
 				280447682191C8C500AB1C3A /* Client.swift in Sources */,
 				280447752191C8C500AB1C3A /* Method.swift in Sources */,
@@ -897,6 +907,7 @@
 				280447552191C81400AB1C3A /* LocalFileResponseTests.swift in Sources */,
 				280447572191C81400AB1C3A /* OperationQueueTests.swift in Sources */,
 				2804475D2191C81400AB1C3A /* ResponseTests.swift in Sources */,
+				28E9EE5022DDC35E00EAAA98 /* ChainedPromiseTests.swift in Sources */,
 				280447522191C81400AB1C3A /* HashablePromiseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,6 +924,7 @@
 				2886A9C42191EA920019213F /* Request.swift in Sources */,
 				2886A9D12191EA920019213F /* NetworkData.swift in Sources */,
 				2886A9C82191EA920019213F /* Promise+Response.swift in Sources */,
+				28E9EE4922DCCE1500EAAA98 /* Promise+Chaining.swift in Sources */,
 				2886A9D02191EA920019213F /* ParameterEncoding.swift in Sources */,
 				2886A9CA2191EA920019213F /* Promise+Retain.swift in Sources */,
 				2886A9D22191EA920019213F /* Method.swift in Sources */,
@@ -943,6 +955,7 @@
 				2886A9DB2191EAAB0019213F /* HashablePromiseTests.swift in Sources */,
 				2886A9E42191EAAB0019213F /* BaseRemoteTestCase.swift in Sources */,
 				2886A9DC2191EAAB0019213F /* OperationQueueTests.swift in Sources */,
+				28E9EE5122DDC35E00EAAA98 /* ChainedPromiseTests.swift in Sources */,
 				2886A9E52191EAAB0019213F /* ResponseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -959,6 +972,7 @@
 				2886A9A92191EA900019213F /* Request.swift in Sources */,
 				2886A9B62191EA900019213F /* NetworkData.swift in Sources */,
 				2886A9AD2191EA900019213F /* Promise+Response.swift in Sources */,
+				28E9EE4A22DCCE1500EAAA98 /* Promise+Chaining.swift in Sources */,
 				2886A9B52191EA900019213F /* ParameterEncoding.swift in Sources */,
 				2886A9AF2191EA900019213F /* Promise+Retain.swift in Sources */,
 				2886A9B72191EA900019213F /* Method.swift in Sources */,

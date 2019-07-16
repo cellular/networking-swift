@@ -18,8 +18,11 @@ extension Promise {
     ///            Passed values are, the dependency that has been used to resolve the promise, the request and the returning response.
     /// - Returns: The promise to which the response handler has been subscribed.
     @discardableResult
-    public func response(in queue: DispatchQueue? = .main, filter: @escaping (Int) -> Bool = { (200..<400).contains($0) },
-                         completion: @escaping (T, Request, Response) -> Void) -> Promise {
+    public func response(
+        in queue: DispatchQueue? = .main,
+        filter: @escaping (Int) -> Bool = { (200..<400).contains($0) },
+        completion: @escaping (T, Request, Response) -> Void
+    ) -> Promise {
         addResponseOperation { result in
             // Error must never be considered a valid response
             guard case let .success(values) = result else { return }
@@ -49,9 +52,10 @@ extension Promise {
     /// - Returns: The promise to which the response handler has been subscribed.
     @discardableResult
     public func response<S: Sequence>(
-        in queue: DispatchQueue? = .main, filter: S,
-        completion: @escaping (T, Request, Response) -> Void) -> Promise where S.Iterator.Element == Int {
-
+        in queue: DispatchQueue? = .main,
+        filter: S,
+        completion: @escaping (T, Request, Response) -> Void
+    ) -> Promise where S.Iterator.Element == Int {
         return response(in: queue, filter: { filter.contains($0) }, completion: completion)
     }
 
@@ -66,7 +70,11 @@ extension Promise {
     ///            Passed values are, the dependency that has been used to resolve the promise, the request and the returning response.
     /// - Returns: The promise to which the response handler has been subscribed.
     @discardableResult
-    public func response(in queue: DispatchQueue? = .main, filter: Int, completion: @escaping (T, Request, Response) -> Void) -> Promise {
+    public func response(
+        in queue: DispatchQueue? = .main,
+        filter: Int,
+        completion: @escaping (T, Request, Response) -> Void
+    ) -> Promise {
         return response(in: queue, filter: [filter], completion: completion)
     }
 
@@ -89,8 +97,10 @@ extension Promise {
     @discardableResult
     public func response<Serializer: Deserializer>(
         in queue: DispatchQueue? = .main,
-        serializer: Serializer, filter: @escaping (Int) -> Bool = { (200..<400).contains($0) },
-        completion: @escaping (T, Request, Response, Result<Serializer.Model, Swift.Error>) -> Void) -> Promise {
+        serializer: Serializer,
+        filter: @escaping (Int) -> Bool = { (200..<400).contains($0) },
+        completion: @escaping (T, Request, Response, Result<Serializer.Model, Swift.Error>
+    ) -> Void) -> Promise {
 
         return response(in: nil, filter: filter) { dependency, request, response in
             // Wrapping closure to execute the completion block on desired queue
