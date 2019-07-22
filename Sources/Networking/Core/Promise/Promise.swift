@@ -129,7 +129,6 @@ public final class Promise<T> where T: Dependency {
     }
 
     internal func resolve(with other: Promise) {
-        let retain = other
         other.addResponseOperation { result in
             switch result {
             case let .failure(error):
@@ -137,7 +136,7 @@ public final class Promise<T> where T: Dependency {
             case let .success(values):
                 self.resolve(with: values)
             }
-            let _ = retain
+            let _ = other // retain other... yeeaah, i know
         }
     }
 

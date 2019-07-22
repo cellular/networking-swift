@@ -9,7 +9,10 @@ extension Promise {
         return .init(in: dependencyQueue) { (promise, result) in
             self.addResponseOperation { (result) in
                 // The closure to be called upon transforming and resolve the transform
-                let resolve: () -> Void = { promise.resolve(with: transform(result)) }
+                let resolve: () -> Void = {
+                    promise.resolve(with: transform(result))
+                    let _ = self // retain self... yeeeeah, i know
+                }
                 // If no specific queue is given (`nil`) return on current queue.
                 guard let queue = queue else { return resolve() }
                 // Specific queue given, return on the desired queue.
