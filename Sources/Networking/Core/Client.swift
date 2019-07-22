@@ -22,7 +22,7 @@ open class Client<T> where T: DependencyManager {
 #endif
 
     /// Queue to stack up requests until the dependencies of the client have been resolved.
-    fileprivate let queue = OperationQueue<Result<T.Value, Swift.Error>>()
+    public let queue = OperationQueue<Result<T.Value, Swift.Error>>()
 
     /// The authentication to be sent with each request created by the client.
     fileprivate var authentications: [String: Authentication] = [:]

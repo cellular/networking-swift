@@ -40,7 +40,7 @@ public final class Promise<T> where T: Dependency {
     /// - Parameters:
     ///   - queue: The `OperationQueue` within which the promise should be "queued" once its ready.
     ///   - operation: The operation to execute once given `OperationQueue` is no longer suspended.
-    internal init(
+    public init(
         in queue: OperationQueue<Result<T, Swift.Error>>,
         operation: @escaping (Promise, Result<T, Swift.Error>) -> Void) {
             dependencyClosure = operation
@@ -112,7 +112,7 @@ public final class Promise<T> where T: Dependency {
         resolve(with: Value(dependency: dependency, request: request, response: response))
     }
 
-    internal func resolve(with error: Swift.Error) {
+    public func resolve(with error: Swift.Error) {
         // Resolve response queue with the result returned by write task
         responseQueue.resolve(with: protectedState.write { state in
             state = .failed(error)
@@ -120,7 +120,7 @@ public final class Promise<T> where T: Dependency {
         })
     }
 
-    internal func resolve(with value: Value) {
+    public func resolve(with value: Value) {
         // Resolve response queue with the result returned by write task
         responseQueue.resolve(with: protectedState.write { state in
             state = .finished(value)
