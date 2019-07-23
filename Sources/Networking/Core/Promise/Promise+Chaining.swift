@@ -6,14 +6,14 @@ extension Promise {
         in queue: DispatchQueue? = .none,
         transform: @escaping (Result<Value, Swift.Error>) throws -> Promise
     ) -> Promise {
-        return .init(in: dependencyQueue) { (promise, result) in
+        let chainedPromise = Promise(in: dependencyQueue) { (boxingPromise, result) in
             self.addResponseOperation { (result) in
                 // The closure to be called upon transforming and resolve the transform
                 let resolve: () -> Void = {
                     do {
-                        promise.resolve(with: try transform(result))
+                        boxingPromise.resolve(with: try transform(result))
                     } catch {
-                        promise.resolve(with: error)
+                        boxingPromise.resolve(with: error)
                     }
                     let _ = self // retain self... yeeeeah, i know
                 }
@@ -23,6 +23,10 @@ extension Promise {
                 queue.async(execute: resolve)
             }
         }
+        chainedPromise.addResponseOperation { _ in
+            /* Start processing input values right away */
+        }
+        return chainedPromise
     }
 
     public func map<Model>(
@@ -36,7 +40,7 @@ extension Promise {
                 return try transform(.failure(error))
             case let .success(values):
                 do {
-                    return try transform(.success(try serializing(values.response)))
+                    return try transform(.success(serializing(values.response)))
                 } catch let error {
                     return try transform(.failure(error))
                 }
