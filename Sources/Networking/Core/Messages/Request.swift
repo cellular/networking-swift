@@ -11,7 +11,7 @@ public protocol Request {
     /// The provider request **must** call the given handler once it determined the final state of the request.
     ///
     /// - Parameter completion: Must be called within the request once it completed (either successfull or due to a failure).
-    func onCompleted(_ completion: @escaping (Result<Response, Error>) -> Void)
+    func onCompleted(_ completion: @escaping (Result<Response, Swift.Error>) -> Void)
 
     /// Cancels the request.
     func cancel()

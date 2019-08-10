@@ -82,7 +82,7 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
 
         let promise = client.request(.get) { url in "https://foo.de/bar/nothing" }
         promise.failure { (error) in
-            failureError = error
+            failureError = error as? Networking.Error
             expectation.fulfill()
         }
         waitForExpectations(timeout: timeout, handler: nil)
@@ -110,7 +110,7 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
 
         let promise = client.request(.get) { url in "https://notfound.cellular.de/news/category/tech/today" }
         promise.failure { (error) in
-            failureError = error
+            failureError = error as? Networking.Error
             expectation.fulfill()
         }
         waitForExpectations(timeout: timeout, handler: nil)

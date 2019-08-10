@@ -1,3 +1,4 @@
 #!/bin/bash
-gem install cocoapods --no-rdoc --no-ri --no-document --quiet;
+gem install cocoapods --no-document --quiet;
+pod repo update;
 pod install;

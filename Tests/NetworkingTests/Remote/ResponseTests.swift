@@ -12,7 +12,7 @@ class ResponseTests: BaseRequestTestCase {
         // When
         let promise = client.request(.get) { $0.invalidServer }
         promise.response(filter: { _ in true }) { _,_,_  in XCTFail("Response should not exist.") }
-        promise.failure { result = $0; expectation.fulfill() }
+        promise.failure { result = $0 as? Networking.Error; expectation.fulfill() }
         waitForExpectations(timeout: timeout, handler: nil)
 
         // Then

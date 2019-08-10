@@ -5,7 +5,7 @@ import CELLULAR
 // MARK: - Definitions
 
 /// Maps the client internal `Method` definitions to the Alamofire specific `Method`.
-internal extension Networking.Method {
+extension Networking.Method {
     internal var alamofire: Alamofire.HTTPMethod {
         switch self {
         case .options: return .options
@@ -50,7 +50,7 @@ private struct CustomEncoding: Alamofire.ParameterEncoding {
 }
 
 /// Maps the client internal `Encoding` definitions to the Alamofire specific `ParameterEncoding`.
-internal extension Networking.ParameterEncoding {
+extension Networking.ParameterEncoding {
     internal var alamofire: Alamofire.ParameterEncoding {
         switch self {
         case .json: return JSONEncoding.default
@@ -70,12 +70,12 @@ extension Alamofire.DataRequest: Networking.Request {
     /// The provider request **must** call the given handler once it determined the final state of the request.
     ///
     /// - Parameter completion: Must be called within the provider request once it completed (either successfull or due to a failure).
-    public func onCompleted(_ completion: @escaping (CELLULAR.Result<Networking.Response, Networking.Error>) -> Void) {
+    public func onCompleted(_ completion: @escaping (Swift.Result<Networking.Response, Swift.Error>) -> Void) {
         validate(statusCode: Int.min..<Int.max).validate(contentType: ["*/*"]).response { dataResponse in
 
             // Only a valid response object will allow this request to be handled as "successful"
             guard let response = dataResponse.response else {
-                return completion(.failure(.requestFailed(self, "\(String(describing: dataResponse.error))")))
+                return completion(.failure(Error.requestFailed(self, "\(String(describing: dataResponse.error))")))
             }
             // Success. Request received a response - data is optional (not necessary for success).
             completion(.success(AlamofireResponse(response: response, data: dataResponse.data)))
@@ -133,7 +133,7 @@ extension MultipartFormData {
 extension SessionManager: Provider {
 
     public func upload(multipartFormData: [FormDataPart], url: String, method: Method, header: [String: String]?,
-                       encodingCompletion: ((CELLULAR.Result<FormDataEncodingResult, String>) -> Void)?,
+                       encodingCompletion: ((Swift.Result<FormDataEncodingResult, Swift.Error>) -> Void)?,
                        progressHandler: ((Progress) -> Void)?) {
         return upload(multipartFormData: { (formData) in
             multipartFormData.forEach { dataPart in
@@ -155,7 +155,7 @@ extension SessionManager: Provider {
                                                             streamFileURL: streamFileURL)
                 encodingCompletion?(.success(encodingResult))
             case .failure(let error):
-                encodingCompletion?(.failure(error.localizedDescription))
+                encodingCompletion?(.failure(error))
             }
         })
     }

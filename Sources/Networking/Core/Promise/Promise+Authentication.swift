@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Promise {
+extension Promise {
 
     /// Authenticates the request associated with the promise with given credentials.
     ///

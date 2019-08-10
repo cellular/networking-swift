@@ -83,7 +83,7 @@ class LocalFileRequest: Request {
     /// The provider request **must** call the given handler once it determined the final state of the request.
     ///
     /// - Parameter completion: Must be called within the provider request once it completed (either successfull or due to a failure).
-    public func onCompleted(_ completion: @escaping (Result<Response, Error>) -> Void) {
+    public func onCompleted(_ completion: @escaping (Result<Response, Swift.Error>) -> Void) {
         if let url = request?.url, let map = mapping.first(where: { $0.url == url.absoluteString}),
             let filePath = bundle.path(forResource: map.fileName, ofType: map.fileType ?? "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
@@ -147,7 +147,7 @@ public class LocalFileProvider: Provider {
     }
 
     public func upload(multipartFormData: [FormDataPart], url: String, method: Method, header: [String: String]?,
-                       encodingCompletion: ((Result<FormDataEncodingResult, String>) -> Void)?, progressHandler: ((Progress) -> Void)?) {
+                       encodingCompletion: ((Result<FormDataEncodingResult, Swift.Error>) -> Void)?, progressHandler: ((Progress) -> Void)?) {
         encodingCompletion?(.success(FormDataEncodingResult(request: LocalFileRequest(url: url, provider: self),
                                                             streamingFromDisk: false, streamFileURL: nil)))
     }
