@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
-    spec.version       = '5.1'
-    spec.swift_version = '5.0'
+    spec.version       = '6.0.0'
+    spec.swift_version = '5.1'
     spec.module_name   = 'Networking'
     spec.name          = 'CellularNetworking'
     spec.summary       = 'HTTP Networking Framework in Swift by CELLULAR.'
@@ -10,14 +10,14 @@ Pod::Spec.new do |spec|
     spec.source        = { :git => 'https://github.com/cellular/networking-swift.git', :tag => spec.version.to_s }
 
     # Deployment Targets
-    spec.ios.deployment_target     = '10.0'
-    spec.tvos.deployment_target    = '10.0'
-    spec.watchos.deployment_target = '3.0'
+    spec.ios.deployment_target     = '11.0'
+    spec.tvos.deployment_target    = '11.0'
+    spec.watchos.deployment_target = '5.0'
 
     # Core Subspec
 
     spec.subspec 'Core' do |sub|
-        sub.dependency 'CELLULAR/Locking', '~> 5.1'
+        sub.dependency 'CELLULAR/Locking', '~> 6.0.0'
         sub.source_files = 'Sources/Networking/Core/**/*.swift'
     end
 
@@ -39,12 +39,6 @@ Pod::Spec.new do |spec|
     spec.subspec 'Codable' do |sub|
         sub.dependency 'CellularNetworking/Core'
         sub.source_files = 'Sources/Networking/Serializer/Codable.swift'
-    end
-
-    spec.subspec 'Unbox' do |sub|
-        sub.dependency 'Unbox', '~> 4.0'
-        sub.dependency 'CellularNetworking/Core'
-        sub.source_files = 'Sources/Networking/Serializer/Unbox.swift'
     end
 
     # Default Subspecs
