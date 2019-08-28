@@ -7,7 +7,7 @@ import Foundation
 ///   - model: The `Model.Type` to decode within the response serialization process.
 ///   - decoder: An optional custom encoder to be used for serialization
 /// - Returns: A new deserializer that will unbox an array of given `Model.Type` within a response deserialization.
-public func decode<Model>(model: Model.Type, decoder: JSONDecoder = JSONDecoder()) -> JSONNetworkingDecoder<Model> {
+public func decode<Model>(model: Model.Type, decoder: JSONDecoder = .init()) -> JSONNetworkingDecoder<Model> {
     return JSONNetworkingDecoder<Model>(decoder: decoder)
 }
 
@@ -19,7 +19,7 @@ public struct JSONNetworkingDecoder<Model>: Deserializer where Model: Decodable 
     /// Initializes a new decoder instance that
     ///
     /// - Parameter decoder: Optional custom encoder to be used for serialization
-    fileprivate init(decoder: JSONDecoder = JSONDecoder()) {
+    fileprivate init(decoder: JSONDecoder = .init()) {
         self.decoder = decoder
     }
 

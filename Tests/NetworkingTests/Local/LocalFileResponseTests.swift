@@ -1,14 +1,13 @@
 import XCTest
 import Networking
 
-
 class LocalFileRequestTestCase: XCTestCase {
 
     // Timeout before any request/response related test will be marked as failed
     let timeout: TimeInterval = 3.0
 
     // Client to perform networking tasks
-    var client: Client<HTTPBin>!
+    var client: Client<HTTPBin>?
 
     /**
      Setup method called before the invocation of each test method in the class.
@@ -24,7 +23,7 @@ class LocalFileRequestTestCase: XCTestCase {
         } catch let error {
             print(error)
         }
-        client.performDependencyUpdateRoutine(())
+        client?.performDependencyUpdateRoutine(())
     }
 }
 
@@ -38,10 +37,10 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
             LocalFileMap(url: "https://foo.de/bar", fileName: "bar")
         ], bundle: Bundle(for: type(of: self)))
         client = Client(provider: provider)
-        client.performDependencyUpdateRoutine(())
+        client?.performDependencyUpdateRoutine(())
 
-        let promise = client.request(.get) { _ in "https://foo.de/bar" }
-        promise.response(filter: { _ in true }) { result = ($0, $1, $2); expectation.fulfill() }
+        let promise = client?.request(.get) { _ in "https://foo.de/bar" }
+        promise?.response(filter: { _ in true }) { result = ($0, $1, $2); expectation.fulfill() }
         waitForExpectations(timeout: timeout, handler: nil)
 
         XCTAssertNotNil(result, "Response should not be nil")
@@ -55,10 +54,10 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
             LocalFileMap(url: "https://foo.de/bar", fileName: "foo")
             ], bundle: Bundle(for: type(of: self)))
         client = Client(provider: provider)
-        client.performDependencyUpdateRoutine(())
+        client?.performDependencyUpdateRoutine(())
 
-        let promise = client.request(.get) { _ in "https://foo.de/bar" }
-        promise.failure { _ in
+        let promise = client?.request(.get) { _ in "https://foo.de/bar" }
+        promise?.failure { _ in
             expectation.fulfill()
         }
         waitForExpectations(timeout: timeout, handler: nil)
@@ -68,8 +67,8 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
         let expectation = self.expectation(description: "Request should succeed")
         var result: (dependency: HTTPBin, request: Request, response: Response)?
 
-        let promise = client.request(.get) { _ in "https://foo.de/bar" }
-        promise.response(filter: { _ in true }) { result = ($0, $1, $2); expectation.fulfill() }
+        let promise = client?.request(.get) { _ in "https://foo.de/bar" }
+        promise?.response(filter: { _ in true }) { result = ($0, $1, $2); expectation.fulfill() }
         waitForExpectations(timeout: timeout, handler: nil)
 
         XCTAssertNotNil(result, "Response should not be nil")
@@ -80,8 +79,8 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
         let expectation = self.expectation(description: "Request should fail with 404")
         var failureError: Networking.Error?
 
-        let promise = client.request(.get) { url in "https://foo.de/bar/nothing" }
-        promise.failure { (error) in
+        let promise = client?.request(.get) { url in "https://foo.de/bar/nothing" }
+        promise?.failure { (error) in
             failureError = error as? Networking.Error
             expectation.fulfill()
         }
@@ -96,8 +95,8 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
         let expectation = self.expectation(description: "Request should succeed")
         var result: (dependency: HTTPBin, request: Request, response: Response)?
 
-        let promise = client.request(.get) { url in "https://cellular.de/news/category/tech/today" }
-        promise.response(filter: { _ in true }) { result = ($0, $1, $2); expectation.fulfill() }
+        let promise = client?.request(.get) { url in "https://cellular.de/news/category/tech/today" }
+        promise?.response(filter: { _ in true }) { result = ($0, $1, $2); expectation.fulfill() }
         waitForExpectations(timeout: timeout, handler: nil)
 
         XCTAssertNotNil(result, "Response should not be nil")
@@ -108,8 +107,8 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
         let expectation = self.expectation(description: "Request should fail with 404")
         var failureError: Networking.Error?
 
-        let promise = client.request(.get) { url in "https://notfound.cellular.de/news/category/tech/today" }
-        promise.failure { (error) in
+        let promise = client?.request(.get) { url in "https://notfound.cellular.de/news/category/tech/today" }
+        promise?.failure { (error) in
             failureError = error as? Networking.Error
             expectation.fulfill()
         }

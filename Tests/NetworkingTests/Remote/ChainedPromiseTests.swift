@@ -24,5 +24,7 @@ class ChainedPromiseTests: BaseRequestTestCase {
         // Then
         XCTAssertNotNil(result, "Response should not be nil")
         XCTAssertNotNil(result?.response.data, "Data should not be nil")
+        XCTAssertNotNil(chainedResult, "Response should not be nil")
+        XCTAssertNotNil(chainedResult?.response.data, "Data should not be nil")
     }
 }
