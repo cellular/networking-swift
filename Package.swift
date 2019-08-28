@@ -3,6 +3,11 @@ import PackageDescription
 
 let package = Package(
     name: "Networking",
+    platforms: [
+        .iOS(.v11),
+        .tvOS(.v11),
+        .watchOS(.v5)
+    ],
     products: [
         .library(name: "Networking", targets: ["Networking"])
     ],
