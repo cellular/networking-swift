@@ -210,12 +210,18 @@ extension Client {
                 } else if let host = url.host, let authentication = this.authentications[host] {
                     (url, header, parameters) = authentication.authenticate(url: url, header: header, parameters: parameters)
                 }
+                
+                // iOS 13 is stricter with request validation. A GET request with a body now fails (and ParameterEncoding.url maps to URLEncoding.httpBody)
+                var validatedEncoding = encoding
+                if method == .get, case ParameterEncoding.url = encoding {
+                    validatedEncoding = .urlEncodedInUrl
+                }
 
                 // Send a new request based on the resolved values and store it within the promise
                 let request = this.provider.request(method,
                     url: url.absoluteString,
                     parameters: parameters,
-                    encoding: encoding,
+                    encoding: validatedEncoding,
                     header: header
                 )
                 promise.resolve(with: request, using: dependency)
