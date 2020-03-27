@@ -9,11 +9,11 @@ let package = Package(
         .watchOS(.v5)
     ],
     products: [
-        .library(name: "Networking", targets: ["Networking"])
+        .library(name: "Networking", type: .dynamic, targets: ["Networking"])
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.8.2"),
-        .package(url: "https://github.com/cellular/cellular-swift", from: "6.0.1"),
+        .package(url: "https://github.com/cellular/cellular-swift", .branch("master")),
     ],
     targets: [
         .target(name: "Networking", dependencies: ["CELLULAR", "Alamofire"]),
