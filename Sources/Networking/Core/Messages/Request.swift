@@ -14,5 +14,5 @@ public protocol Request {
     func onCompleted(_ completion: @escaping (Result<Response, Swift.Error>) -> Void)
 
     /// Cancels the request.
-    func cancel()
+    func cancel() -> Self
 }

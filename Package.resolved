@@ -6,17 +6,17 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "75bba56748359f297a83f620d45f72cf4ebee4e7",
-          "version": "4.8.2"
+          "revision": "59037bfd28aa963a7916f1eb22a74107a3522f16",
+          "version": "5.0.5"
         }
       },
       {
         "package": "CELLULAR",
         "repositoryURL": "https://github.com/cellular/cellular-swift",
         "state": {
-          "branch": null,
-          "revision": "2e1108028fb08424a870ad5406c4757e35810330",
-          "version": "6.0.1"
+          "branch": "master",
+          "revision": "b31a66d5f67df81f5c88254d7d9cd84d22997c7f",
+          "version": null
         }
       }
     ]

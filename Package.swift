@@ -10,9 +10,9 @@ let package = Package(
     ],
     products: [
         .library(name: "Networking", type: .dynamic, targets: ["Networking"])
-    ],
+    ],  
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.8.2"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.5"),
         .package(url: "https://github.com/cellular/cellular-swift", .branch("master")),
     ],
     targets: [

@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
     # Provider Subspecs
 
     spec.subspec 'Alamofire' do |sub|
-        sub.dependency 'Alamofire', '~> 4.8.2'
+        sub.dependency 'Alamofire', '~> 5.0.5'
         sub.dependency 'CellularNetworking/Core'
         sub.source_files = 'Sources/Networking/Provider/Alamofire.swift'
     end

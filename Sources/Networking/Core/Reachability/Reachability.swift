@@ -27,10 +27,10 @@ public enum ReachabilityStatus: Equatable {
     /// Defines the various states of networking connection types.
     ///
     /// - ethernetOrWiFi: The connection type is either over Ethernet or WiFi.
-    /// - wwan: The connection type is a WWAN connection.
+    /// - cellular: The connection type is a cellular connection.
     public enum ConnectionType {
         case ethernetOrWiFi
-        case wwan
+        case cellular
     }
 
     // MARK: Equatable
