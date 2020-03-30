@@ -12,7 +12,7 @@ class ChainedPromiseTests: BaseRequestTestCase {
         var chainedResult: (dependency: HTTPBin, request: Request, response: Response)?
 
         // When
-        let promise = client.request(.get) { $0.statusCode(248) }
+        let promise = client.request(.post) { $0.userAgent }
         let chainedPromise = promise.map(in: .main) { _ in
             promise.response(filter: { _ in true }) { result = ($0, $1, $2); expectation.fulfill() }
             return self.client.request(.get) { $0.userAgent }

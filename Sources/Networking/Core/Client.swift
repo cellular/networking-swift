@@ -1,3 +1,4 @@
+import Alamofire
 import Foundation
 import CELLULAR
 
@@ -6,6 +7,13 @@ public typealias Parameters = [String: Any]
 
 /// Defines the type of dictionary and types that aree acceptable as request header fields.
 public typealias Header = [String: String]
+
+/// Maps the client internal `Header` definitions to the Alamofire specific `HTTPHeaders`.
+extension Networking.Header {
+    internal var alamofire: Alamofire.HTTPHeaders {
+        .init(self)
+    }
+}
 
 /// The base class to send requests.
 open class Client<T> where T: DependencyManager {
@@ -334,15 +342,8 @@ extension Client {
                 }
 
                 // Send a new request based on the resolved values and store it within the promise
-                this.provider.upload(multipartFormData: formData, url: url.absoluteString, method: method, header: header,
-                                     encodingCompletion: { (encodingResult) in
-                    switch encodingResult {
-                    case .success(let result):
-                        promise.resolve(with: result.request, using: dependency)
-                    case .failure(let error):
-                        promise.resolve(with: .failure(error))
-                    }
-                }, progressHandler: progressHandler)
+                let request = this.provider.upload(multipartFormData: formData, url: url.absoluteString, method: method, header: header, progressHandler: progressHandler)
+                promise.resolve(with: request, using: dependency)
             }
         })
     }
