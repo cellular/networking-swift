@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.8.2"),
-        .package(url: "https://github.com/cellular/cellular-swift", .branch("master")),
+        .package(url: "https://github.com/cellular/cellular-swift", .branch("feature/xcode_11.4")),
     ],
     targets: [
         .target(name: "Networking", dependencies: ["CELLULAR", "Alamofire"]),
