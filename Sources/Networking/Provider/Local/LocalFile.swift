@@ -104,7 +104,10 @@ class LocalFileRequest: Request {
     }
 
     /// Cancels the request.
-    func cancel() { /* Once created, the local file request is */ }
+    func cancel() -> Self {
+        /* Once created, the local file request is */
+        return self
+    }
 }
 
 // MARK: - Provider
@@ -147,9 +150,8 @@ public class LocalFileProvider: Provider {
     }
 
     public func upload(multipartFormData: [FormDataPart], url: String, method: Method, header: [String: String]?,
-                       encodingCompletion: ((Result<FormDataEncodingResult, Swift.Error>) -> Void)?, progressHandler: ((Progress) -> Void)?) {
-        encodingCompletion?(.success(FormDataEncodingResult(request: LocalFileRequest(url: url, provider: self),
-                                                            streamingFromDisk: false, streamFileURL: nil)))
+                    progressHandler: ((Progress) -> Void)?) -> Request {
+        return LocalFileRequest(url: url, provider: self)
     }
 
     #if !os(watchOS)

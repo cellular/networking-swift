@@ -87,7 +87,7 @@ class BaseRequestTestCase: XCTestCase {
      */
     override func setUp() {
         super.setUp()
-        client = Client(provider: SessionManager(configuration: URLSessionConfiguration.default))
+        client = Client(provider: Session(configuration: URLSessionConfiguration.default))
         client.performDependencyUpdateRoutine(())
     }
 }

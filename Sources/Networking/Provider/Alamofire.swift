@@ -98,19 +98,6 @@ private struct AlamofireResponse: Networking.Response {
 extension MultipartFormData {
 
     /// convenience bridging method which offers optional parameter handling
-    public func append(_ data: Data, withName name: String, fileName: String?, mimeType: String?) {
-        if let mimeType = mimeType {
-            if let fileName = fileName {
-                append(data, withName: name, fileName: fileName, mimeType: mimeType)
-            } else {
-                append(data, withName: name, mimeType: mimeType)
-            }
-        } else {
-            append(data, withName: name)
-        }
-    }
-
-    /// convenience bridging method which offers optional parameter handling
     public func append(_ fileURL: URL, withName name: String, fileName: String?, mimeType: String?) {
         if let fileName = fileName, let mimeType = mimeType {
             append(fileURL, withName: name, fileName: fileName, mimeType: mimeType)
@@ -130,11 +117,10 @@ extension MultipartFormData {
 }
 
 /// Allows the alamofire manager to be used as a client provider, managing requests directed through the client.
-extension SessionManager: Provider {
+extension Session: Provider {
 
-    public func upload(multipartFormData: [FormDataPart], url: String, method: Method, header: [String: String]?,
-                       encodingCompletion: ((Swift.Result<FormDataEncodingResult, Swift.Error>) -> Void)?,
-                       progressHandler: ((Progress) -> Void)?) {
+    public func upload(multipartFormData: [FormDataPart], url: String, method: Method, header: Header?,
+                       progressHandler: ((Progress) -> Void)?) -> Request {
         return upload(multipartFormData: { (formData) in
             multipartFormData.forEach { dataPart in
                 switch dataPart.data {
@@ -147,35 +133,27 @@ extension SessionManager: Provider {
                                     mimeType: dataPart.mimeType)
                 }
             }
-        }, to: url, method: method.alamofire, headers: header, encodingCompletion: { (result) in
-            switch result {
-            case .success(let request, let streamingFromDisk, let streamFileURL):
-                let encodingResult = FormDataEncodingResult(request: request.uploadProgress(closure: progressHandler ?? { _ in }),
-                                                            streamingFromDisk: streamingFromDisk,
-                                                            streamFileURL: streamFileURL)
-                encodingCompletion?(.success(encodingResult))
-            case .failure(let error):
-                encodingCompletion?(.failure(error))
-            }
-        })
+        }, to: url, method: method.alamofire, headers: header?.alamofire)
     }
 
-    public func upload(_ data: NetworkData, url: String, method: Method, header: [String: String]?, progressHandler: ((Progress) -> Void)?)
+    public func upload(_ data: NetworkData, url: String, method: Method, header: Header?, progressHandler: ((Progress) -> Void)?)
         -> Request {
-        switch data {
-        case .data(let data):
-            return upload(data, to: url, method: method.alamofire, headers: header).uploadProgress(closure: progressHandler ?? { _ in })
-        case .fileURL(let fileURL):
-            return upload(fileURL, to: url, method: method.alamofire, headers: header).uploadProgress(closure: progressHandler ?? { _ in })
-        case .inputStream(let inputStream, _):
-            return upload(inputStream, to: url, method: method.alamofire, headers: header)
-                .uploadProgress(closure: progressHandler ?? { _ in })
-        }
+            switch data {
+            case .data(let data):
+                return upload(data, to: url, method: method.alamofire, headers: header?.alamofire)
+                    .uploadProgress(closure: progressHandler ?? { _ in })
+            case .fileURL(let fileURL):
+                return upload(fileURL, to: url, method: method.alamofire, headers: header?.alamofire)
+                    .uploadProgress(closure: progressHandler ?? { _ in })
+            case .inputStream(let inputStream, _):
+                return upload(inputStream, to: url, method: method.alamofire, headers: header?.alamofire)
+                    .uploadProgress(closure: progressHandler ?? { _ in })
+            }
     }
 
     public func request(_ method: Networking.Method, url: String, parameters: Parameters?,
                         encoding: ParameterEncoding, header: Header?) -> Networking.Request {
-        return request(url, method: method.alamofire, parameters: parameters, encoding: encoding.alamofire, headers: header)
+        return request(url, method: method.alamofire, parameters: parameters, encoding: encoding.alamofire, headers: header?.alamofire)
     }
 
 #if !os(watchOS)
@@ -204,8 +182,8 @@ private extension NetworkReachabilityManager.NetworkReachabilityStatus {
             switch type {
             case .ethernetOrWiFi:
                 return .reachable(.ethernetOrWiFi)
-            case .wwan:
-                return .reachable(.wwan)
+            case .cellular:
+                return .reachable(.cellular)
             }
         }
     }
@@ -214,7 +192,7 @@ private extension NetworkReachabilityManager.NetworkReachabilityStatus {
 private final class AlamofireReachabilityManager: ReachabilityManager {
 
     /// The current reachability status for defined host or generic reachability, if host not specified.
-    var status: ReachabilityStatus { return manager.networkReachabilityStatus.converted }
+    var status: ReachabilityStatus { return manager.status.converted }
 
     /// A closure executed when the network reachability status of `self` changes.
     var listener: ReachabilityManager.Listener?
@@ -230,10 +208,9 @@ private final class AlamofireReachabilityManager: ReachabilityManager {
         } else {
             return nil
         }
-        manager.listener = { [weak self] (status) in
+        manager.startListening { [weak self] (status) in
             self?.listener?(status.converted)
         }
-        manager.startListening()
     }
 }
 

@@ -47,8 +47,7 @@ public protocol Provider {
     ///   - encodingCompletion: Completion closure of the form encoding. If successful, the result contains the constructed Request object
     ///   - progressHandler: Closure to receive upload progress updates
     func upload(multipartFormData: [FormDataPart], url: String, method: Method, header: [String: String]?,
-                encodingCompletion: ((Result<FormDataEncodingResult, Swift.Error>) -> Void)?,
-                progressHandler: ((Progress) -> Void)?)
+                progressHandler: ((Progress) -> Void)?) -> Request
 
 //    func download(_ url: URLConvertible,method: HTTPMethod = .get, parameters: Parameters? = nil,
 //        encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil,
