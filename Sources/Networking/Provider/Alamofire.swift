@@ -21,6 +21,13 @@ extension Networking.Method {
     }
 }
 
+/// Maps the client internal `Header` definitions to the Alamofire specific `HTTPHeaders`.
+extension Networking.Header {
+    internal var alamofire: Alamofire.HTTPHeaders {
+        .init(self)
+    }
+}
+
 /// Wrapper around Alamofire Encoding to be used by the Networking Encoding
 private struct CustomEncoding: Alamofire.ParameterEncoding {
 

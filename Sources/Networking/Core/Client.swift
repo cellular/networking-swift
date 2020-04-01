@@ -1,4 +1,3 @@
-import Alamofire
 import Foundation
 import CELLULAR
 
@@ -7,13 +6,6 @@ public typealias Parameters = [String: Any]
 
 /// Defines the type of dictionary and types that aree acceptable as request header fields.
 public typealias Header = [String: String]
-
-/// Maps the client internal `Header` definitions to the Alamofire specific `HTTPHeaders`.
-extension Networking.Header {
-    internal var alamofire: Alamofire.HTTPHeaders {
-        .init(self)
-    }
-}
 
 /// The base class to send requests.
 open class Client<T> where T: DependencyManager {
