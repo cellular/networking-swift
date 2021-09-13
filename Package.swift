@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "Networking", targets: ["Networking"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.5"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.4.3"),
         .package(url: "https://github.com/cellular/cellular-swift", from: "6.0.1"),
     ],
     targets: [
