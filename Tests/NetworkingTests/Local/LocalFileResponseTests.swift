@@ -16,8 +16,7 @@ class LocalFileRequestTestCase: XCTestCase {
      */
     override func setUp() {
         super.setUp()
-        let bundle = Bundle(for: LocalFileRequestTestCase.self)
-        let definition = LocalFileDefinition(bundle: bundle, fileName: "LocalFileDefinition", placeholders: ["%@$1" : "bar"])
+        let definition = LocalFileDefinition(bundle: Bundle.module, fileName: "LocalFileDefinition", placeholders: ["%@$1" : "bar"])
         do {
             client = try Client(provider: LocalFileProvider(definition: definition))
         } catch let error {
@@ -35,7 +34,7 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
 
         let provider = LocalFileProvider(mapping: [
             LocalFileMap(url: "https://foo.de/bar", fileName: "bar")
-        ], bundle: Bundle(for: type(of: self)))
+        ], bundle: Bundle.module)
         client = Client(provider: provider)
         client?.performDependencyUpdateRoutine(())
 
@@ -52,7 +51,7 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
 
         let provider = LocalFileProvider(mapping: [
             LocalFileMap(url: "https://foo.de/bar", fileName: "foo")
-            ], bundle: Bundle(for: type(of: self)))
+            ], bundle: Bundle.module)
         client = Client(provider: provider)
         client?.performDependencyUpdateRoutine(())
 
@@ -120,8 +119,7 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
     }
 
     func testThrowOfErrorWithInvalidJSON() {
-        let bundle = Bundle(for: LocalFileRequestTestCase.self)
-        let definition = LocalFileDefinition(bundle: bundle, fileName: "BrokenLocalFileDefinition", placeholders: [String: String]())
+        let definition = LocalFileDefinition(bundle: Bundle.module, fileName: "BrokenLocalFileDefinition", placeholders: [String: String]())
         var parsingError: Swift.Error?
         do {
             client = try Client(provider: LocalFileProvider(definition: definition))
@@ -133,7 +131,5 @@ class LocalFileResponseTests: LocalFileRequestTestCase {
             case let DecodingError.keyNotFound(key, _) = decodingError {
             XCTAssert(key.stringValue == "statusCode", "Missing CodingKey should be \"statusCode\"")
         }
-
-
     }
 }

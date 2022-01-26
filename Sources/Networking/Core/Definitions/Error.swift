@@ -4,7 +4,7 @@ import Foundation
 ///
 /// - unsolvedDependency: Indicates an error due to an unsolved dependency update.
 /// - malformedUrl: Indicates an error due to an invalid request URL.
-/// - invalidCredentials: Indiciates an error due to invalid credentials (within authorization).
+/// - invalidCredentials: Indicates an error due to invalid credentials (within authorization).
 /// - requestFailed: Indicates an error due to failed request (e.g. timeout) - request available.
 /// - serializationFailed: Indicates an error due to an invalid deserialization.
 /// - clientError: Indicates a client error on the request (4xx) - response available.
@@ -59,7 +59,7 @@ extension Error: CustomDebugStringConvertible, CustomStringConvertible {
             return "[Networking Error] Could not form a valid request URL.\nDescription: \(error)"
         case let .invalidCredentials(error):
             return "[Networking Error] Authorization failed.\nDescription: \(error)"
-        case let .requestFailed(error):
+        case let .requestFailed(error, _):
             return "[Networking Error] Request failed.\nDescription: \(error)"
         case let .serializationFailed(error):
             return "[Networking Error] Serialization failed.\nDescription: \(error)"
