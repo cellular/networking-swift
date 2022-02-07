@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode11
+osx_image: xcode13.2
 
 # Build Script
 before_script: chmod +x ./.travis/build.sh
@@ -20,13 +20,13 @@ notifications:
 matrix:
     include:
         # iOS
-        - env: DESTINATION="OS=13.0,name=iPhone XS Max" POD_LINT="YES"
-        - env: DESTINATION="OS=12.0,name=iPhone XS"
-        - env: DESTINATION="OS=11.0.1,name=iPhone X"
+        - env: DESTINATION="OS=15.0,name=iPhone 13 Pro Max" POD_LINT="YES"
+        - env: DESTINATION="OS=14.5,name=iPhone 13 Pro"
+        - env: DESTINATION="OS=14.0,name=iPhone 13"
         # watchOS
-        - env: DESTINATION="OS=5.2,name=Apple Watch Series 4 - 44mm" RUN_TESTS="NO"
-        - env: DESTINATION="OS=5.0,name=Apple Watch Series 2 - 42mm" RUN_TESTS="NO"
+        - env: DESTINATION="OS=7.4,name=Apple Watch Series 7 - 45mm" RUN_TESTS="NO"
+        - env: DESTINATION="OS=8.0,name=Apple Watch Series 6 - 40mm" RUN_TESTS="NO"
         # tvOS
-        - env: DESTINATION="OS=13.0,name=Apple TV 4K"
-        - env: DESTINATION="OS=12.0,name=Apple TV 4K (at 1080p)"
-        - env: DESTINATION="OS=11.0,name=Apple TV"
+        - env: DESTINATION="OS=15.0,name=Apple TV 4K (2nd generation)"
+        - env: DESTINATION="OS=14.5,name=Apple TV 4K"
+        - env: DESTINATION="OS=14.0,name=Apple TV 4K (at 1080p)"

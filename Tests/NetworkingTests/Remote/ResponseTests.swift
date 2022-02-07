@@ -81,7 +81,7 @@ class ResponseDataTests: BaseRequestTestCase {
         // Given
         let expectation = self.expectation(description: "Request should succeed")
         var result: (dependency: HTTPBin, request: Request, response: Response)?
-        let fileURL = Bundle(for: type(of: self)).url(forResource: "a", withExtension: "png")!
+        let fileURL = Bundle.module.url(forResource: "a", withExtension: "png")!
 
         // When
         let promise = client.upload(.fileURL(fileURL), path: { $0.post })
@@ -97,7 +97,7 @@ class ResponseDataTests: BaseRequestTestCase {
         // Given
         let expectation = self.expectation(description: "Request should succeed")
         var result: (dependency: HTTPBin, request: Request, response: Response)?
-        let fileURL = Bundle(for: type(of: self)).url(forResource: "a", withExtension: "png")!
+        let fileURL = Bundle.module.url(forResource: "a", withExtension: "png")!
 
         // When
         let promise = client.upload(.fileURL(fileURL), path: { $0.put })
@@ -114,7 +114,7 @@ class ResponseDataTests: BaseRequestTestCase {
         let expectation = self.expectation(description: "Request should call progress handler")
         expectation.assertForOverFulfill = false // avoids crash when filfill
 
-        let fileURL = Bundle(for: type(of: self)).url(forResource: "b", withExtension: "png")!
+        let fileURL = Bundle.module.url(forResource: "b", withExtension: "png")!
 
         // When
         let promise = client.upload(.fileURL(fileURL), path: { $0.post }, progressHandler: { _ in
@@ -131,7 +131,7 @@ class ResponseDataTests: BaseRequestTestCase {
         // Given
         let expectation = self.expectation(description: "Request should succeed")
         var result: (dependency: HTTPBin, request: Request, response: Response)?
-        let fileURL = Bundle(for: type(of: self)).url(forResource: "a", withExtension: "png")!
+        let fileURL = Bundle.module.url(forResource: "a", withExtension: "png")!
         let data = try! Data(contentsOf: fileURL)
         let inputStream = InputStream(data: data)
 
@@ -149,7 +149,7 @@ class ResponseDataTests: BaseRequestTestCase {
         // Given
         let expectation = self.expectation(description: "Request should succeed")
         var result: (dependency: HTTPBin, request: Request, response: Response)?
-        let fileURL = Bundle(for: type(of: self)).url(forResource: "a", withExtension: "png")!
+        let fileURL = Bundle.module.url(forResource: "a", withExtension: "png")!
         let data = try! Data(contentsOf: fileURL)
 
         // When
